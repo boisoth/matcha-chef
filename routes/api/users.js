@@ -59,13 +59,11 @@ router.post(
       });
 
       // Create salt and hash
-
-      const salt = await bcrypt.getSalt(10);
+      const salt = await bcrypt.genSalt(10);
 
       user.password = await bcrypt.hash(password, salt);
 
       // Save the user to DB
-
       await user.save();
 
       res.send("User registered");
