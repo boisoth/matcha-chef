@@ -6,8 +6,7 @@ const auth = require("../../middleware/auth");
 // @desc    Auth route
 // @access  Private
 router.get("/", auth, (req, res) => {
-  // Auth middleware decoded/verified our jwt and passed the req.user back
-  // Time to sleep. =)
+  res.send("Auth route");
 });
 
 module.exports = router;

@@ -12,6 +12,8 @@ const User = require("../../models/User");
 // @route   POST api/users
 // @desc    Register user
 // @access  Public
+
+// Postman -- Register body as raw
 router.post(
   "/",
   [
