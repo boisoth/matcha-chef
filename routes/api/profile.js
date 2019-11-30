@@ -11,7 +11,18 @@ const Profile = require("../../models/Profile");
 
 router.get("/", auth, async (req, res) => {
   try {
-    const profile = await Profile.findOne({ user: req.user.id }); // User ID is passed from auth middleware which exposed the ID then used in Profile Schema user field type -- mongoose.Schema.Types.ObjectId
+    // User ID is passed from auth middleware which exposed the token ID then used in Profile Schema user field type -- mongoose.Schema.Types.ObjectId
+    // Once we find a profile with the user, we populate user, and a list of items we want to bring in.
+
+    const profile = await Profile.findOne({
+      user: req.user.id
+    }).populate("user", ["name", "avatar"]);
+
+    if (!profile) {
+      res.status(400).json({ msg: "There is no profile for this user" });
+    }
+
+    res.json(profile);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
