@@ -9,7 +9,7 @@ const Profile = require("../../models/Profile");
 // @desc    Get current users profile
 // @access  Private
 
-router.get("/", auth, async (req, res) => {
+router.get("/me", auth, async (req, res) => {
   try {
     // User ID is passed from auth middleware which exposed the token ID then used in Profile Schema user field type -- mongoose.Schema.Types.ObjectId
     // Once we find a profile with the user, we populate user, and a list of items we want to bring in.
