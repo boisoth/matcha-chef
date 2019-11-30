@@ -26,7 +26,7 @@ module.exports = function(req, res, next) {
   try {
     //
     const decoded = jwt.verify(token, config.get("jwtSecret"));
-    console.log(decoded);
+    console.log("Authentication middleware verified", decoded);
 
     // Send decoded jwt to protected routes with _id
     req.user = decoded.user;
