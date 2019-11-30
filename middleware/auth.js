@@ -7,7 +7,7 @@ const config = require("config");
 // When we recieve the token in the header, we call the jwt.verify() method
 // with the token(user id etc) and the secret.
 // We recieve a callback with the verified users, store it as the req.user and pass it
-// to any other next() middleware within the chain
+// to any other next() middleware within the chain, in our case the protected route
 
 module.exports = function(req, res, next) {
   // Get token from the header
