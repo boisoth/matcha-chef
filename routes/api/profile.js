@@ -101,6 +101,8 @@ router.post(
           { $set: profileFields },
           { new: true }
         );
+
+        return res.json(profile);
       }
 
       // Create a user since no profile was found
