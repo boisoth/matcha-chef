@@ -106,7 +106,7 @@ router.post(
       // Create a user since no profile was found
       profile = new Profile(profileFields);
 
-      await Profile.save();
+      await profile.save();
       res.json(profile);
     } catch (err) {
       console.error(err.message);
