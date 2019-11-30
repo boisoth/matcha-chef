@@ -1,3 +1,10 @@
+/**
+ * Routes for Authenticating
+ * Users will be logged in via POST /api/auth and recieve a new token
+ * to pass to auth middleware to decode/verify
+ * For user registration, refer to /api/users
+ */
+
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");

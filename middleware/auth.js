@@ -1,3 +1,8 @@
+/**
+ * Authenticating middleware for decoding/jwt verify
+ * Decoded user will contain the payload
+ */
+
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
