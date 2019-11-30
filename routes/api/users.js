@@ -73,7 +73,14 @@ router.post(
       // Save the user to DB
       await user.save();
 
-      // JWT
+      // Before signing a JWT, user.save() returns a promise from mongoose to use in payload
+      // Payload will have a user object with the id
+      // We then call jwt.sign() with the following arguments:
+      // payload object,
+      // config string that holds the secret,
+      // expiration object set to 1 hour,
+      // and a callback to recieve the token
+
       const payload = {
         user: {
           id: user.id
