@@ -83,9 +83,35 @@ router.post(
       profileFields.skills = skills.split(",").map(skill => skill.trim()); // Since skills needs to be an array
     }
 
-    console.log(profileFields.skills);
+    // Build social object
+    profileFields.social = {};
+    if (youtube) profileFields.social.youtube = youtube;
+    if (twitter) profileFields.social.twitter = twitter;
+    if (facebook) profileFields.social.facebook = facebook;
+    if (linkedin) profileFields.social.linkedin = linkedin;
+    if (instagram) profileFields.social.instagram = instagram;
 
-    res.send("Test");
+    try {
+      let profile = await Profile.findOne({ user: req.user.id });
+
+      if (profile) {
+        // Update the profile if found
+        profile = await Profile.findByIdAndUpdate(
+          { user: req.user.id },
+          { $set: profileFields },
+          { new: true }
+        );
+      }
+
+      // Create a user since no profile was found
+      profile = new Profile(profileFields);
+
+      await Profile.save();
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server Error");
+    }
   }
 );
 
