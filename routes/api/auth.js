@@ -102,6 +102,7 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
+          // Verfied token
           res.json({ token });
         }
       );

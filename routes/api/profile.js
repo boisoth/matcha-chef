@@ -13,7 +13,7 @@ const Profile = require("../../models/Profile");
 router.get("/me", auth, async (req, res) => {
   try {
     // User ID is passed from auth middleware which exposed the token ID then used in Profile Schema user field type -- mongoose.Schema.Types.ObjectId
-    // Once we find a profile with the user, we populate user, and a list of items we want to bring in. Constant profile will check for the user id, then populate the information if found.
+    // Once we find a profile with the user, we populate user, and a list of items we want to bring in. Constant profile will check for the user id, then populate from the user collection
 
     const profile = await Profile.findOne({
       user: req.user.id
@@ -94,8 +94,8 @@ router.post(
     try {
       let profile = await Profile.findOne({ user: req.user.id });
 
+      // Updating user profile fields if user profile is found
       if (profile) {
-        // Update the profile if found
         profile = await Profile.findOneAndUpdate(
           { user: req.user.id },
           { $set: profileFields },
@@ -123,7 +123,9 @@ router.post(
 
 router.get("/", async (req, res) => {
   try {
-    const profiles = await Profile.find();
+    // Find and populate a profile from the user collection
+    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+    res.json(profiles);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
