@@ -13,7 +13,7 @@ const Profile = require("../../models/Profile");
 router.get("/me", auth, async (req, res) => {
   try {
     // User ID is passed from auth middleware which exposed the token ID then used in Profile Schema user field type -- mongoose.Schema.Types.ObjectId
-    // Once we find a profile with the user, we populate user, and a list of items we want to bring in.
+    // Once we find a profile with the user, we populate user, and a list of items we want to bring in. Constant profile will check for the user id, then populate the information if found.
 
     const profile = await Profile.findOne({
       user: req.user.id
