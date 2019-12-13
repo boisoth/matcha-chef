@@ -125,6 +125,7 @@ router.get("/", async (req, res) => {
   try {
     // Find and populate a profile from the user collection
     const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+    console.log(profiles);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);
