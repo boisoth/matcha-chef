@@ -7,6 +7,12 @@
 - profiles collection
 - users collection
 
+## HTTP Verbs
+
+| Method | Endpoint     | Description      | Sample Response                              |
+| ------ | ------------ | ---------------- | -------------------------------------------- |
+| POST   | `/api/users` | Creates new user | `{ token: r93jajfk21423182sdhHGdfd4343ssdf}` |
+
 ### Register new user `POST /api/users`
 
 - Responds with token
