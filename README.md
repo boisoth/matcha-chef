@@ -7,7 +7,7 @@
 - profiles collection
 - users collection
 
-## HTTP Verbs
+### Usage
 
 | Method | Endpoint     | Description      | Sample Response                              |
 | ------ | ------------ | ---------------- | -------------------------------------------- |
