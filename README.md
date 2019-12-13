@@ -11,7 +11,7 @@
 
 | Method | Endpoint     | Description      | Sample Response                              |
 | ------ | ------------ | ---------------- | -------------------------------------------- |
-| POST   | `/api/users` | Creates new user | `{ token: r93jajfk21423182sdhHGdfd4343ssdf}` |
+| ```POST ```   | `/api/users` | Creates new user | `{ token: r93jajfk21423182sdhHGdfd4343ssdf}` |
 
 ### Register new user `POST /api/users`
 
