@@ -1,5 +1,12 @@
 # API
 
+### mongoDB Atlas Cluster
+
+- Sandbox cluster
+- test database
+- profiles collection
+- users collection
+
 ### Register new user `POST /api/users`
 
 - Responds with token
