@@ -2,7 +2,8 @@ const express = require("express");
 const connectDB = require("./config/db");
 const htmlRoutes = require("./routes/htmlRoutes");
 const path = require("path");
-const favicon = require("express-favicon");
+// const favicon = require("express-favicon");
+const favicon = require("serve-favicon");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
