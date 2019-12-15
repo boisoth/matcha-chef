@@ -1,6 +1,8 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const htmlRoutes = require("./routes/htmlRoutes");
+const path = require("path");
+const favicon = require("serve-favicon");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -10,6 +12,7 @@ connectDB();
 
 // Static Directory
 app.use(express.static("public"));
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 // EJS Config
 app.set("views", "./views");
