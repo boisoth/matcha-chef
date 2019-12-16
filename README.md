@@ -9,11 +9,15 @@
 
 ### Usage
 
-| Method | Endpoint     | Description        | Sample Response                              |
-| ------ | ------------ | ------------------ | -------------------------------------------- |
-| `POST` | `/api/users` | Creates new user   | `{ token: r93jajfk21423182sdhHGdfd4343ssdf}` |
-| `POST` | `/api/auth`  | Authenticates user | `{ token: r93jajfk21423182sdhHGdfd4343ssdf}` |
+| Method | Endpoint     | Description       | Body                                                           | Request Headers                                                                        | Sample Response                                 |
+| ------ | ------------ | ----------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `POST` | `/api/users` | Creates new user  | `{name: "Ben Gee",email: "bengee@gmail.com",password: 123456}` | N/A                                                                                    | `{token: "995fbba524b378b7e5cf7e076168ffd0?s"}` |
+| `POST` | `/api/auth`  | Authenticate user | `{email: "bengee@gmail.com",password: 123456}`                 | `{Content-Type: "application/json, x-auth-token: "995fbba524b378b7e5cf7e076168ffd0" }` | `{token: "995fbba524b378b7e5cf7e076168ffd0?s"}` |
 
 - Pass token in header, then auth middleware decodes and sends passes on the user and matches the credenctials. Signs a new token to use in protected routes
 
 ### Create user profile `POST /api/profile`
+
+```
+
+```
