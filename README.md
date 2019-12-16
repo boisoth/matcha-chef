@@ -17,7 +17,3 @@
 | `GET`    | `/api/profile`               | Gets all profiles             | N/A                                                                                                                                    | N/A                                                                                    | `[{...}, {...}]`                                |
 | `GET`    | `/api/profile/user/:user_id` | Get a users profile           | `{ user: req.params.user_id }`                                                                                                         | N/A                                                                                    | `[{...}]`                                       |
 | `DELETE` | `/api/profile`               | Delete a user and orofile     | N/A                                                                                                                                    | `{Content-Type: "application/json, x-auth-token: "995fbba524b378b7e5cf7e076168ffd0" }` | `{ msg: "User deleted"}`                        |
-
-- Pass token in header, then auth middleware decodes and sends passes on the user and matches the credenctials. Signs a new token to use in protected routes
-
-### Create user profile `POST /api/profile`
