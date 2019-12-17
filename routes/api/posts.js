@@ -10,6 +10,17 @@ const User = require("../../models/User");
 // @route   POST api/posts
 // @desc    Create a post
 // @access  Private
-router.get("/", (req, res) => res.send("Posts route"));
+router.post(
+  "/",
+  [
+    auth,
+    [
+      check("text", "Text is required")
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => res.send("Posts route")
+);
 
 module.exports = router;
