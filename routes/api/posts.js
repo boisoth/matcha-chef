@@ -53,6 +53,7 @@ router.post(
 
 router.get("/", auth, async (req, res) => {
   try {
+    const posts = await Post.find();
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
