@@ -14,4 +14,8 @@ router.get("/contact", (req, res) => {
   res.render("contact", { title: "Contact" });
 });
 
+router.get("/form", (req, res) => {
+  res.render("form", { title: "Form" });
+});
+
 module.exports = router;
