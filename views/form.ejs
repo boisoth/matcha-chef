@@ -11,7 +11,14 @@
 
     <form method="POST" action="/api/users">
       <div>
-        <input type="text" placeholder="Name" name="name" id="name" />
+        <input
+          type="text"
+          id="name"
+          placeholder="Name"
+          name="name"
+          value=""
+          id="name"
+        />
       </div>
       <div>
         <input type="text" placeholder="Email" name="email" id="email" />
@@ -24,15 +31,14 @@
           id="password"
         />
       </div>
-      <button id="on-submit">Submit</button>
     </form>
-
-    <script>
+    <button id="on-submit">Submit</button>
+    <script type="text/javascript">
       const submitButton = document.getElementById("on-submit");
       submitButton.addEventListener("click", e => {
-        let userName = document.getElementsByName("name");
+        let userName = document.getElementById("name");
 
-        console.log(e, userName.value);
+        console.log(e, userName);
       });
     </script>
   </body>
