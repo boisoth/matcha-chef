@@ -9,7 +9,7 @@
 
     <h1>Register</h1>
 
-    <form method="POST" action="/api/users">
+    <form>
       <div>
         <input
           type="text"
@@ -21,7 +21,13 @@
         />
       </div>
       <div>
-        <input type="text" placeholder="Email" name="email" id="email" />
+        <input
+          type="text"
+          id="email"
+          placeholder="Email"
+          name="email"
+          id="email"
+        />
       </div>
       <div>
         <input
@@ -32,14 +38,27 @@
         />
       </div>
     </form>
-    <button id="on-submit">Submit</button>
+    <button id="on-submit" onclick="submit()">Submit</button>
     <script type="text/javascript">
       const submitButton = document.getElementById("on-submit");
-      submitButton.addEventListener("click", e => {
-        let userName = document.getElementById("name");
 
-        console.log(e, userName);
-      });
+      async function submit() {
+        let userName = document.getElementById("name");
+        let userEmail = document.getElementById("email");
+        let userPassword = document.getElementById("password");
+
+        const userRoute = await fetch("/api/users", {
+          headers: { "Content-Type": "application/json; charset=utf-8" },
+          method: "POST",
+          body: JSON.stringify({
+            name: userName,
+            email: userEmail,
+            password: userPassword
+          })
+        });
+
+        userRoute();
+      }
     </script>
   </body>
 </html>
