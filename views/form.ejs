@@ -23,7 +23,14 @@
           id="password"
         />
       </div>
-      <input type="submit" value="" />
+      <input type="submit" value="" onclick="onSubmit()" />
     </form>
+
+    <script>
+      const onSubmit = e => {
+        e.preventDefault();
+        console.log("submit");
+      };
+    </script>
   </body>
 </html>
