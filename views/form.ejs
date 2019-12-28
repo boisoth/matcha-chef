@@ -8,29 +8,30 @@
     <%- include("partials/navigation") %> Form
 
     <h1>Register</h1>
-    <form method="POST" action="/api/users" enctype="application/json">
-      <div>
-        <input type="text" placeholder="Name" name="name" id="name" />
-      </div>
-      <div>
-        <input type="text" placeholder="Email" name="email" id="email" />
-      </div>
-      <div>
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          id="password"
-        />
-      </div>
-      <input type="submit" value="" onclick="onSubmit()" />
-    </form>
+
+    <div>
+      <input type="text" placeholder="Name" name="name" id="name" />
+    </div>
+    <div>
+      <input type="text" placeholder="Email" name="email" id="email" />
+    </div>
+    <div>
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        id="password"
+      />
+    </div>
+    <button id="on-submit"></button>
 
     <script>
-      const onSubmit = e => {
-        e.preventDefault();
-        console.log("submit");
-      };
+      const submitButton = document.getElementById("on-submit");
+      submitButton.addEventListener("click", e => {
+        let userName = document.getElementsByName("name");
+
+        console.log(e, userName.value);
+      });
     </script>
   </body>
 </html>
