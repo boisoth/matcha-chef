@@ -124,4 +124,12 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
+// @route   PUT api/posts/like:id
+// @desc    Link a post
+// @access  Private
+
+router.put('/like/:id', auth, async (req, res)=>{
+  
+})
+
 module.exports = router;
