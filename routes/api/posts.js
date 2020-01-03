@@ -200,7 +200,6 @@ router.post(
       const user = await User.findById(req.user.id).select("-password");
       const post = await Post.findById(req.params.id);
 
-      // User model for new post
       const newComment = {
         text: req.body.text,
         name: user.name,
@@ -213,6 +212,7 @@ router.post(
       await post.save();
 
       res.json(post.comments);
+
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
