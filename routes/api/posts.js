@@ -51,6 +51,19 @@ router.post(
 // @desc    Get all posts
 // @access  Private
 
+// Response Object
+// {
+//   "_id": "5e0fb05b3456f18164e56998",
+//   "text": "This is my post number 4",
+//   "name": "Boi Soth 4",
+//   "avatar": "//www.gravatar.com/avatar/2320318a92ab0afb2b6c9fe3de203557?s=200&r=pg&d=mm",
+//   "user": "5e0e8148806afa220447fc86",
+//   "likes": [],
+//   "comments": [],
+//   "date": "2020-01-03T21:21:31.116Z",
+//   "__v": 0
+// }
+
 router.get("/", auth, async (req, res) => {
   try {
     const posts = await Post.find().sort({date: -1}); // 1 for oldest first
@@ -62,7 +75,7 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// @route   GET api/posts
+// @route   GET api/posts/:id
 // @desc    Get all posts
 // @access  Private
 
@@ -81,6 +94,21 @@ router.get("/:id", auth, async (req, res) => {
     if(err.kind === "ObjectId") {
       return res.status(404).json({ msg: "Post not found"})
     }
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route   DELETE api/posts/:id
+// @desc    Get all posts
+// @access  Private
+
+router.delete("/", auth, async (req, res) => {
+  try {
+    const posts = await Post.findById(req.params.id)
+    
+
+  } catch (err) {
+    console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
