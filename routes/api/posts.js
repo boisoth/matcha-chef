@@ -163,7 +163,7 @@ router.put('/unlike/:id', auth, async (req, res)=>{
     }
 
     // Get remove index
-    const removeIndex = post.likes.map(like.user.toString()).indexOf(req.user.id);
+    const removeIndex = post.likes.map(like => like.user.toString()).indexOf(req.user.id);
 
     post.likes.splice(removeIndex, 1);
 
