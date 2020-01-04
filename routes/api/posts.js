@@ -66,9 +66,8 @@ router.post(
 
 router.get("/", auth, async (req, res) => {
   try {
-    const posts = await Post.find().sort({date: -1}); // 1 for oldest first
+    const posts = await Post.find().sort({ date: -1 }); // 1 for oldest first
     res.json(posts);
-
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -83,16 +82,15 @@ router.get("/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
-    if(!post){
-      return res.status(404).json({ msg: "Post not found"})
+    if (!post) {
+      return res.status(404).json({ msg: "Post not found" });
     }
     res.json(post);
-
   } catch (err) {
     console.error(err.message);
 
-    if(err.kind === "ObjectId") {
-      return res.status(404).json({ msg: "Post not found"})
+    if (err.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Post not found" });
     }
     res.status(500).send("Server Error");
   }
@@ -104,21 +102,20 @@ router.get("/:id", auth, async (req, res) => {
 
 router.delete("/:id", auth, async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id)
-    
+    const post = await Post.findById(req.params.id);
+
     // Make sure the user is the only one who can delete
-    if(post.user.toString() !== req.user.id){
-      return res.status(401).json({msg: "Unauthorized user"})
+    if (post.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "Unauthorized user" });
     }
 
     await post.remove();
 
-    res.json({msg: 'Post removed'})
-
+    res.json({ msg: "Post removed" });
   } catch (err) {
     console.error(err.message);
-    if(err.kind === "ObjectId") {
-      return res.status(404).json({msg: 'Post not found'})
+    if (err.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Post not found" });
     }
     res.status(500).send("Server Error");
   }
@@ -128,52 +125,57 @@ router.delete("/:id", auth, async (req, res) => {
 // @desc    Like a post
 // @access  Private
 
-router.put('/like/:id', auth, async (req, res)=>{
+router.put("/like/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
     // If current user already liked a post
-    if(post.likes.filter(like => like.user.toString() === req.user.id).length > 0){
-      return res.status(400).json({msg: "Post already liked"});
+    if (
+      post.likes.filter(like => like.user.toString() === req.user.id).length > 0
+    ) {
+      return res.status(400).json({ msg: "Post already liked" });
     }
 
-    post.likes.unshift({user: req.user.id});
+    post.likes.unshift({ user: req.user.id });
 
     await post.save();
 
-    res.json(post.likes)
-
+    res.json(post.likes);
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({msg: "Server Error"})
+    res.status(500).json({ msg: "Server Error" });
   }
-})
+});
 
 // @route   PUT api/posts/unlike:id
 // @desc    Unlike a post
 // @access  Private
 
-router.put('/unlike/:id', auth, async (req, res)=>{
+router.put("/unlike/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
     // If current user already liked a post
-    if(post.likes.filter(like => like.user.toString() === req.user.id).length === 0){
-      return res.status(400).json({msg: "Post has not been liked"});
+    if (
+      post.likes.filter(like => like.user.toString() === req.user.id).length ===
+      0
+    ) {
+      return res.status(400).json({ msg: "Post has not been liked" });
     }
 
     // Get remove index
-    const removeIndex = post.likes.map(like => like.user.toString()).indexOf(req.user.id);
+    const removeIndex = post.likes
+      .map(like => like.user.toString())
+      .indexOf(req.user.id);
 
     post.likes.splice(removeIndex, 1);
 
     await post.save();
 
-    res.json(post.likes)
-
+    res.json(post.likes);
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({msg: "Server Error"})
+    res.status(500).json({ msg: "Server Error" });
   }
 });
 
@@ -212,7 +214,6 @@ router.post(
       await post.save();
 
       res.json(post.comments);
-
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
