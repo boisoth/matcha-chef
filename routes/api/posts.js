@@ -182,6 +182,7 @@ router.put("/unlike/:id", auth, async (req, res) => {
 // @route   POST api/posts/comment/:id
 // @desc    Comment on a post
 // @access  Private
+
 router.post(
   "/comment/:id",
   [
@@ -220,5 +221,17 @@ router.post(
     }
   }
 );
+
+// @route   DELETE api/posts/comment/:id/:comment_id
+// @desc    Delete comment
+// @access  Private
+
+router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
+  try {
+    
+  } catch (err) {
+    
+  } 
+});
 
 module.exports = router;
