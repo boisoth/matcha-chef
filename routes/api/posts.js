@@ -233,7 +233,18 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
 
     // Find comment
     const comment = post.comments.find(comment => comment.id === req.params.comment_id);
-    
+
+    // Make sure comment exists
+    if(!comment){
+      return res.status(404).json({ msg: "Comment does not exist" });
+    }
+
+    // Check if current user matches comment user id
+
+    if(comment.user.toString() !== req.user.id){
+      return res.status(401).json({ msg: "User not authorized "});
+    }
+
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
