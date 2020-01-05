@@ -6,6 +6,7 @@
 - test database
 - profiles collection
 - users collection
+- posts collection
 
 ### User Login & Registration
 
