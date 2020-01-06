@@ -1,7 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, userState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+
+    const [formData, setFormData] = userState({
+        name: '',
+        email: '',
+        passowrd: '',
+        password2: ''
+    });
+
+    const { name, email, passowrd, password2 } = formData;
+    
     return <Fragment>
         <h1 className="large text-primary">Sign Up</h1>
       <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
