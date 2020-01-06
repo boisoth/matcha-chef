@@ -47,7 +47,14 @@ const Register = () => {
       <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
-          <input type="text" placeholder="Name" name="name" value={name} onChange={e => onChange(e)} required />
+          <input 
+            type="text" 
+            placeholder="Name" 
+            name="name" 
+            value={name} 
+            onChange={e => onChange(e)} 
+            required 
+            />
         </div>
         <div className="form-group">
           <input 
