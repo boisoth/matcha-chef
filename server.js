@@ -15,8 +15,8 @@ app.use(express.static("public"));
 app.use(favicon(__dirname + "/public/favicon.ico"));
 
 // EJS Config
-app.set("views", "./views");
-app.set("view engine", "ejs");
+// app.set("views", "./views");
+// app.set("view engine", "ejs");
 
 // Init Middleware
 app.use(express.json({ extended: false }));
@@ -28,6 +28,6 @@ app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/posts", require("./routes/api/posts"));
 
 // View Routes
-app.use(htmlRoutes);
+// app.use(htmlRoutes);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
