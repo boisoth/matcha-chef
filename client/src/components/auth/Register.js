@@ -1,9 +1,9 @@
-import React, { Fragment, userState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
 
-    const [formData, setFormData] = userState({
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
         passowrd: '',
@@ -21,7 +21,13 @@ const Register = () => {
           <input type="text" placeholder="Name" name="name" value={name} onChange={e => onChange(e)} required />
         </div>
         <div className="form-group">
-          <input type="email" placeholder="Email Address" name="email" />
+          <input 
+            type="email" 
+            placeholder="Email Address" 
+            name="email" value={email} 
+            onChange={e => onChange(e)} 
+            required 
+            />
           <small className="form-text"
             >This site uses Gravatar so if you want a profile image, use a
             Gravatar email</small
@@ -33,6 +39,8 @@ const Register = () => {
             placeholder="Password"
             name="password"
             minLength="6"
+            value={passowrd} 
+            onChange={e => onChange(e)}
           />
         </div>
         <div className="form-group">
@@ -41,6 +49,8 @@ const Register = () => {
             placeholder="Confirm Password"
             name="password2"
             minLength="6"
+            value={password2} 
+            onChange={e => onChange(e)}
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Register" />
