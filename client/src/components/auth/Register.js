@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -102,4 +103,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default connect()(Register);
