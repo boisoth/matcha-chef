@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { setAlert } from "../../actions/alert";
 
-const Register = (props) => {
+const Register = ({setAlert}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +19,7 @@ const Register = (props) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      props.setAlert("Passwords don't match", "danger");
+      setAlert("Passwords don't match", "danger");
     } else {
       const newUser = {
         name,
