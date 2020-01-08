@@ -150,6 +150,13 @@ img {
   width: 8rem;
 }
 
+.buttons a:hover {
+  background: #FFFFFF;
+  opacity: 0.8;
+  color: black;
+  border: solid #FFFFFF;
+}
+
 .btn {
   display: inline-block;
   background: var(--light-color);
