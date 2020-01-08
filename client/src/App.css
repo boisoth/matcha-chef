@@ -575,6 +575,12 @@ button {
     display: none;
   }
 
+  .buttons a {
+    margin: 1rem auto;
+    display: block;
+    width: 100%;
+  }
+
   /* Profiles Page */
   .profile {
     grid-template-columns: 1fr;
