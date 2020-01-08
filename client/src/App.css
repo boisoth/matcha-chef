@@ -353,12 +353,16 @@ button {
   font-weight: 600;
 }
 
+.navbar ul li a:hover {
+  border-bottom: solid 0.3rem;
+}
+
 .navbar h1 a span{
   font-size: 1.8rem;
 }
 
 .navbar a:hover {
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
 }
 
 .navbar .welcome span {
