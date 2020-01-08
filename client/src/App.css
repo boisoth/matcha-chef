@@ -257,7 +257,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 0;
@@ -357,7 +357,7 @@ button {
 
 .navbar ul li a {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .navbar ul li a:hover {
