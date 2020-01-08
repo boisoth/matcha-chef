@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;;
+  font-family: 'Open Sans', sans-serif;;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
@@ -128,6 +128,21 @@ img {
 }
 .my-3 {
   margin: 3rem 0;
+}
+
+.buttons {
+  max-width: 31.25rem;
+  width: 100%;
+}
+
+.buttons a {
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 0.4rem 1.6rem;
+  border: solid;
+  margin: 1rem;
+  display: inline-block;
+  width: 8rem;
 }
 
 .btn {
@@ -310,10 +325,12 @@ button {
   padding: 0.7rem 2rem;
   position: fixed;
   z-index: 1;
+  max-width: 960px;
   width: 100%;
   top: 0;
+  right: 0;
   /* border-bottom: solid 1px var(--primary-color); */
-  opacity: 0.9;
+  /* opacity: 0.9; */
 }
 
 .navbar ul {
@@ -328,6 +345,7 @@ button {
 
 .navbar ul li a {
   font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .navbar h1 a span{
