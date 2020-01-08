@@ -14,11 +14,15 @@
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Roboto', sans-serif;;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+}
+
+.matcha {
+  font-family: 'Pattaya', sans-serif;
 }
 
 a {
@@ -40,8 +44,8 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
-  margin-bottom: 3rem;
+  /* margin-top: 6rem;
+  margin-bottom: 3rem; */
 }
 
 /* Text Styles*/
@@ -160,7 +164,7 @@ img {
 .bg-primary,
 .badge-primary,
 .alert-primary {
-  background: var(--primary-color);
+  /* background: var(--primary-color); */
   color: #fff;
 }
 
@@ -168,7 +172,7 @@ img {
 .bg-light,
 .badge-light,
 .alert-light {
-  background: var(--light-color);
+  /* background: var(--light-color); */
   color: #333;
 }
 
@@ -176,7 +180,7 @@ img {
 .bg-dark,
 .badge-dark,
 .alert-dark {
-  background: var(--dark-color);
+  /* background: var(--dark-color); */
   color: #fff;
 }
 
@@ -206,12 +210,12 @@ img {
 }
 
 .btn:hover {
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
 .bg-light,
 .badge-light {
-  border: #ccc solid 1px;
+  /* border: #ccc solid 1px; */
 }
 
 .round-img {
@@ -308,7 +312,7 @@ button {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
+  /* border-bottom: solid 1px var(--primary-color); */
   opacity: 0.9;
 }
 
@@ -320,6 +324,14 @@ button {
   color: #fff;
   padding: 0.45rem;
   margin: 0 0.25rem;
+}
+
+.navbar ul li a {
+  font-size: 1.3rem;
+}
+
+.navbar h1 a span{
+  font-size: 1.8rem;
 }
 
 .navbar a:hover {
