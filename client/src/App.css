@@ -1,4 +1,4 @@
-Global Styles
+/* Global Styles */
 :root {
   --primary-color: #17a2b8;
   --dark-color: #343a40;
@@ -132,7 +132,7 @@ img {
 }
 .my-1 a {
   color: var(--white-color);
-  border: solid
+  border: solid;
 }
 .my-2 {
   margin: 2rem 0;
